@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gkolenko001/Developer/yachting-quiz-cz'
+yarn hygen util new --subfolder 
+make: Leaving directory `/Users/gkolenko001/Developer/yachting-quiz-cz'
+ 

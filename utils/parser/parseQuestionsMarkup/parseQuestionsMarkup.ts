@@ -19,6 +19,10 @@ const getQuestionTitle = (node: HTMLElement) => {
   return Array.from(node.childNodes)[2].textContent
 }
 
+const getQuestionImage = (node: HTMLElement) => {
+  return node.getElementsByTagName("img")?.[0]?.attributes["src"]
+}
+
 export const parseQuestionsMarkup: ParseQuestionsMarkup = (markup) => {
   const root = parse(markup)
   const table = root.querySelectorAll("#telo table tr")
@@ -29,10 +33,13 @@ export const parseQuestionsMarkup: ParseQuestionsMarkup = (markup) => {
   return table.reduce((questions: Question[], node) => {
     if (isQuestionHeader(node)) {
       const title = getQuestionTitle(node)
+      const img = getQuestionImage(node)
+
       const nextQuestion: Question = {
         article: questions.length + 1,
         title,
         variants: [],
+        img,
       }
       return [...questions, nextQuestion]
     }
