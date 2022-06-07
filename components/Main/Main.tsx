@@ -1,21 +1,17 @@
-import { FC } from 'react';
+import { FC } from "react"
 
-import classnames from 'classnames';
+import classnames from "classnames"
 
-type OuterProps = JSX.IntrinsicElements['div'];
+type OuterProps = JSX.IntrinsicElements["main"]
 
-export type MainProps = OuterProps;
+export type MainProps = OuterProps
 
 export const Main: FC<MainProps> = (props) => {
-  const { className, children, ...otherProps } = props;
+  const { className, children, ...otherProps } = props
 
   return (
-    <div
-      className={classnames('main', className)}
-      data-testid="Main"
-      {...otherProps}
-    >
+    <main className={classnames("main", className)} data-testid="Main" {...otherProps}>
       {children}
-    </div>
-  );
-};
+    </main>
+  )
+}
