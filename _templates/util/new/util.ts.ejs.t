@@ -1,5 +1,5 @@
 ---
-to: util/<%= subfolder %>/<%= name %>/<%= name %>.ts
+to: utils/<%= subfolder %>/<%= name %>/<%= name %>.ts
 ---
 
 export type <%= h.capitalize(name) %>Arg = {}

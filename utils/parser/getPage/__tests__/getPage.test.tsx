@@ -1,8 +1,4 @@
----
-to: utils/<%= subfolder %>/<%= name %>/__tests__/<%= name %>.test.tsx
----
-
-import { <%= name %> as fnToTest } from '../<%= name %>';
+import { getPage as fnToTest } from '../getPage';
 
 const testCases = {
   'regular result check': {
@@ -11,7 +7,7 @@ const testCases = {
   },
 };
 
-describe('<%= subfolder %> -> <%= name %> test cases', () => {
+describe('parser -> getPage test cases', () => {
   for (const [testCaseName, { fnResult, expectedResults }] of Object.entries(testCases)) {
     describe(`for ${testCaseName}`, () => {
       it(`should return correct value`, () => {

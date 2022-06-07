@@ -1,6 +1,6 @@
 ---
 inject: true
-to: util/<%= subfolder %>/index.ts
+to: utils/<%= subfolder %>/index.ts
 append: true
 skip_if: "from './<%= name %>'"
 ---

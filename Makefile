@@ -1,5 +1,5 @@
 util:
-	@ yarn hygen new --name util $(word 2, $(MAKECMDGOALS))
+	@ yarn hygen util new --subfolder $(word 2, $(MAKECMDGOALS))
 
 component:
 	@ yarn hygen component new $(word 2, $(MAKECMDGOALS))
