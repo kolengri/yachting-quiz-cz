@@ -1,5 +1,5 @@
 ---
-to: utils/<%= subfolder %>/<%= name %>/__tests__/<%= name %>.test.tsx
+to: utils/<%= subfolder %>/<%= name %>/__tests__/<%= name %>.test.ts
 ---
 
 import { <%= name %> as fnToTest } from '../<%= name %>';
