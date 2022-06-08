@@ -3,14 +3,14 @@ import Head from "next/head"
 import { useEffect, useMemo, useState } from "react"
 import { shuffle } from "../array"
 import { Categories } from "../models"
-import { Main, Container, QuestionCard } from "../components"
+import { Main, Container, QuestionCard, Loader } from "../components"
 import { useGetQuestions } from "../hooks/api"
 
 const title = "Test: otázky pro způsobilost"
 
 const Home: NextPage = () => {
   const [category, setCategories] = useState<Categories>(Categories.M)
-  const { data } = useGetQuestions(category)
+  const { data, isValidating } = useGetQuestions(category)
   const [questionsCount, setQuestionsCount] = useState(30)
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [nextTest, setNextTest] = useState(0)
@@ -72,13 +72,15 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div>
-            {questions.map((item) => (
-              <QuestionCard
-                item={item}
-                key={`${item.article}${nextTest}`}
-                onChange={(c) => setCorrectAnswers((i) => (c ? i + 1 : i))}
-              />
-            ))}
+            <Loader loading={isValidating}>
+              {questions.map((item) => (
+                <QuestionCard
+                  item={item}
+                  key={`${item.article}${nextTest}`}
+                  onChange={(c) => setCorrectAnswers((i) => (c ? i + 1 : i))}
+                />
+              ))}
+            </Loader>
           </div>
         </Container>
       </Main>
