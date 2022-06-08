@@ -49,7 +49,7 @@ export const QuestionCard: FC<QuestionCardProps> = (props) => {
         {img && <Image height={250} width={250} src={img} alt={title} objectFit="scale-down" />}
         <div className="flex-1">
           {randomVariants.map((item) => (
-            <label key={item.title} className="mb-1 flex gap-2 items-center cursor-pointer">
+            <label key={item.title} className="mb-1 flex gap-2 items-center cursor-pointer p-1">
               <input type="radio" name={article.toString()} value={String(item.isCorrect)} onChange={handleChange} />
               {item.title}
             </label>
